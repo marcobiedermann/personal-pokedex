@@ -19,14 +19,14 @@ interface Entry {
 }
 
 const ENTRIES: Entry[] = [
-  { name: 'Wildes Pikachu', type: 'Typ: Elektro / Party', level: 'Lv. 6', text: 'Ein Mensch im Pikachu-Kostüm. Lädt seine Wangen mit Süßigkeiten auf und entlädt sie auf der Tanzfläche.', image: pikachuImg },
-  { name: 'Wildes Evoli', type: 'Typ: Normal / Party', level: 'Lv. 31', text: 'Entwickelt sich je nach Laune in jede Richtung. Besonders gern in Richtung Buffet.', image: evoliImg },
-  { name: 'Wildes Partytier', type: 'Typ: Tanz / Spaß', level: 'Lv. 28', text: 'Taucht ab Mitternacht an der Tanzfläche auf. Schwäche: Kater am nächsten Morgen.', image: nebulakImg },
-  { name: 'Süßigkeiten-Jäger', type: 'Typ: Zucker', level: 'Lv. 9', text: 'Sammelt Süßes, sonst gibt es Saures. Wird von Schokolade sofort angelockt.', image: irrbisImg },
-  { name: 'Verkleidetes Menschlein', type: 'Typ: Normal / Geist', level: 'Lv. 33', text: 'Hat sich als Pokémon verkleidet. Die Verwandlung ist erstaunlich überzeugend.', image: mimikyuImg },
-  { name: 'Wilder Gruselfan', type: 'Typ: Geist / Spaß', level: 'Lv. 41', text: 'Lacht über jeden Schreck. Seine Spezialattacke: Selfie mit Kürbis.', image: gengarImg },
-  { name: 'Snorlax-Typ', type: 'Typ: Normal', level: 'Lv. 50', text: 'Liegt am liebsten auf dem Sofa. Wacht nur auf, wenn es Pizza gibt.', image: snorlaxImg },
-  { name: 'Wilder Trainer', type: 'Typ: Kampf / Freundschaft', level: 'Lv. 30', text: 'Will der Allerbeste werden. Wartet nur noch auf den nächsten Drink.', image: alpolloImg },
+  { name: 'Wildes Pikachu', type: 'Typ: Elektro', level: 'Lv. 6', text: 'Pikachu begrüßen einander, indem sie ihre Schweife aneinanderreiben und eine Ladung Strom durch diese gleiten lassen.', image: pikachuImg },
+  { name: 'Wildes Evoli', type: 'Typ: Normal', level: 'Lv. 31', text: 'Das Erbmaterial dieses besonderen Pokémon ist instabil, weshalb es das Potenzial für viele verschiedene Entwicklungen in sich trägt.', image: evoliImg },
+  { name: 'Wildes Nebulak', type: 'Typ: Geist / Gift', level: 'Lv. 12', text: 'Aufgrund seines an Gas erinnernden Körpers kommt es an jeden Ort. Es kann jedoch vom Wind davongeweht werden.', image: nebulakImg },
+  { name: 'Wildes Alpollo', type: 'Typ: Geist / Gift', level: 'Lv. 25', text: 'Falls du im Dunkeln das Gefühl hast, beobachtet zu werden, und niemand ist zu sehen, ist es bestimmt Alpollo.', image: alpolloImg },
+  { name: 'Wildes Gengar', type: 'Typ: Geist / Gift', level: 'Lv. 38', text: 'Man sagt, es sei aus Dunkelheit entstanden, um denjenigen, die sich in den Bergen verirrt haben, das Leben zu rauben.', image: gengarImg },
+  { name: 'Wildes Relaxo', type: 'Typ: Normal', level: 'Lv. 40', text: 'Der Magen dieses Pokémon ist so resistent, dass es sogar Verschimmeltes oder Verdorbenes essen kann.', image: snorlaxImg },
+  { name: 'Wildes Irrbis', type: 'Typ: Geist / Pflanze', level: 'Lv. 20', text: 'Blicken Menschen und Pokémon in das Licht, das aus den Löchern seines Kürbisses dringt, werden sie hypnotisiert und von Irrbis kontrolliert.', image: irrbisImg },
+  { name: 'Wildes Mimigma', type: 'Typ: Geist / Fee', level: 'Lv. 22', text: 'Es verbirgt sich unter einem Lumpen, der wie ein Pikachu aussieht, damit niemand Angst vor ihm bekommt. Leider wird es dadurch noch gruseliger.', image: mimikyuImg },
 ]
 
 const pickEntry = (last: number) => {

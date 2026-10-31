@@ -42,6 +42,12 @@ function App() {
     setLidOpen(true)
   }
 
+  const reset = () => {
+    if (!window.confirm('Alle gespeicherten Daten zurücksetzen?')) return
+    localStorage.clear()
+    window.location.replace(import.meta.env.BASE_URL)
+  }
+
   const close = () => {
     sessionStorage.removeItem(OPENED_KEY)
     setLidOpen(false)
@@ -73,7 +79,7 @@ function App() {
           <Encounter active={lidOpen && halloween} />
         </div>
         <div className="controls">
-          <span className="btn-round" />
+          <button type="button" className="btn-round" onClick={reset} aria-label="Zurücksetzen" />
           <button type="button" className="speaker" onClick={close} aria-label="Pokédex schließen">
             <i /><i /><i />
           </button>

@@ -5,7 +5,7 @@ import { DetailScreen } from './DetailScreen'
 import { BadgesScreen } from './BadgesScreen'
 import { HalloweenContext } from './halloween'
 import { CatchScreen } from './CatchScreen'
-import { PhotoScreen } from './PhotoScreen'
+import { ScanScreen } from './ScanScreen'
 import { Encounter } from './Encounter'
 import { Haunt } from './Haunt'
 import { playGhostWail, unlockAudio } from './spooky'
@@ -65,7 +65,7 @@ function App() {
               <Route path="/pokemon/:id" element={<DetailScreen />} />
               <Route path="/orden" element={<BadgesScreen />} />
               <Route path="/fangen" element={<CatchScreen />} />
-              <Route path="/foto" element={<PhotoScreen />} />
+              <Route path="/scan" element={<ScanScreen />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </div>

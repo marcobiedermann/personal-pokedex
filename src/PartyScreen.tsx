@@ -58,7 +58,7 @@ export function PartyScreen() {
       </Link>
       <div className="tools">
         <Link to="/fangen" className="tool"><span>🎯</span>Fangen</Link>
-        <Link to="/foto" className="tool"><span>📸</span>Foto</Link>
+        <Link to="/scan" className="tool"><span>🔍</span>Scan</Link>
       </div>
     </div>
   )

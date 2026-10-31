@@ -102,7 +102,8 @@ body {
 .stat-value { text-align: right; font-variant-numeric: tabular-nums; }
 .stat-bar { height: 10px; background: rgba(0,0,0,.25); border-radius: 5px; overflow: hidden; }
 .stat-bar span { display: block; height: 100%; background: linear-gradient(90deg, #3ddc5a, #f8d030); }
-.moves li { display: flex; justify-content: space-between; align-items: center; background: #f4fbe9; border: 2px solid #2d4a2d; border-radius: 10px; padding: 10px 12px; font-weight: 700; }
+.move { width: 100%; display: flex; justify-content: space-between; align-items: center; background: #f4fbe9; border: 2px solid #2d4a2d; border-radius: 10px; padding: 10px 12px; font: inherit; font-weight: 700; color: inherit; text-align: left; }
+.move.playable:active { background: #dcefc8; }
 .detail { padding-bottom: 28px; }
 
 /* Closed Pokédex lid */

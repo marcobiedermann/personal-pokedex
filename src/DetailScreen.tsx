@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { Link, Navigate, useParams } from 'react-router'
 import { POKEMON, STAT_LABELS, STAT_ORDER, TRAINER, calcStats } from './data'
 
@@ -5,9 +6,18 @@ const MAX_STAT = 200
 
 export function DetailScreen() {
   const { id } = useParams()
+  const lastCry = useRef(-1)
   const p = POKEMON.find((x) => x.id === id)
   if (!p) return <Navigate to="/" replace />
   const stats = calcStats(p)
+
+  const playCry = () => {
+    // Avoid repeating the same cry twice in a row
+    let i = Math.floor(Math.random() * p.cries.length)
+    if (p.cries.length > 1 && i === lastCry.current) i = (i + 1) % p.cries.length
+    lastCry.current = i
+    new Audio(p.cries[i]).play()
+  }
 
   return (
     <div className="page detail">
@@ -27,7 +37,7 @@ export function DetailScreen() {
         <span className="chip level">Lv. {p.level}</span>
       </div>
 
-      <button type="button" className="cry-btn" onClick={() => new Audio(p.cry).play()}>
+      <button type="button" className="cry-btn" onClick={playCry}>
         🔊 {p.name} rufen
       </button>
 
@@ -56,8 +66,17 @@ export function DetailScreen() {
       <ul className="moves">
         {p.moves.map((m) => (
           <li key={m.name}>
-            <span>{m.name}</span>
-            <span className="chip small">{m.type}</span>
+            {m.sound ? (
+              <button type="button" className="move playable" onClick={() => new Audio(m.sound).play()}>
+                <span>{m.name} 🔊</span>
+                <span className="chip small">{m.type}</span>
+              </button>
+            ) : (
+              <div className="move">
+                <span>{m.name}</span>
+                <span className="chip small">{m.type}</span>
+              </div>
+            )}
           </li>
         ))}
       </ul>

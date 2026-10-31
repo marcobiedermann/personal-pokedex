@@ -1,5 +1,10 @@
 import pikachuImg from './assets/pokemon/25.png'
 import pikachuCry from './assets/cries/25.mp3'
+import pikachuCry1 from './assets/cries/pikachu-1.mp3'
+import pikachuCry2 from './assets/cries/pikachu-2.mp3'
+import pikachuCry3 from './assets/cries/pikachu-3.mp3'
+import pikachuCry4 from './assets/cries/pikachu-4.mp3'
+import thunderboltSound from './assets/cries/donnerblitz.mp3'
 import evoliCry from './assets/cries/133.mp3'
 import evoliImg from './assets/pokemon/133.png'
 
@@ -19,6 +24,7 @@ export const STAT_ORDER: StatKey[] = ['kp', 'angriff', 'verteidigung', 'spAngrif
 export interface Move {
   name: string
   type: string
+  sound?: string
 }
 
 export interface Pokemon {
@@ -35,7 +41,7 @@ export interface Pokemon {
   weight: string
   description: string
   image: string
-  cry: string
+  cries: string[]
   color: string
 }
 
@@ -59,6 +65,7 @@ export const POKEMON: Pokemon[] = [
     base: { kp: 35, angriff: 55, verteidigung: 40, spAngriff: 50, spVerteidigung: 50, initiative: 90 },
     moves: [
       { name: 'Donnerschock', type: 'Elektro' },
+      { name: 'Donnerblitz', type: 'Elektro', sound: thunderboltSound },
       { name: 'Heuler', type: 'Normal' },
       { name: 'Rutenschlag', type: 'Normal' },
     ],
@@ -67,7 +74,7 @@ export const POKEMON: Pokemon[] = [
     description:
       'In seinen Wangen speichert es Elektrizität. Wenn es wütend ist, entlädt es die Energie in einem kräftigen Stromstoß.',
     image: pikachuImg,
-    cry: pikachuCry,
+    cries: [pikachuCry, pikachuCry1, pikachuCry2, pikachuCry3, pikachuCry4],
     color: '#f8d030',
   },
   {
@@ -90,7 +97,7 @@ export const POKEMON: Pokemon[] = [
     description:
       'Sein unstabiler Körperbau kann sich je nach Umgebung verändern. Dadurch kann es sich zu vielen verschiedenen Formen entwickeln.',
     image: evoliImg,
-    cry: evoliCry,
+    cries: [evoliCry],
     color: '#c8a060',
   },
 ]

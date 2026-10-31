@@ -4,6 +4,7 @@ import pikachuCry2 from './assets/cries/pikachu-2.mp3'
 import pikachuCry3 from './assets/cries/pikachu-3.mp3'
 import pikachuCry4 from './assets/cries/pikachu-4.mp3'
 import thunderboltSound from './assets/cries/donnerblitz.mp3'
+import evoliCry from './assets/cries/evee.mp3'
 import evoliImg from './assets/pokemon/133.png'
 
 export type StatKey = 'kp' | 'angriff' | 'verteidigung' | 'spAngriff' | 'spVerteidigung' | 'initiative'
@@ -95,7 +96,7 @@ export const POKEMON: Pokemon[] = [
     description:
       'Sein unstabiler Körperbau kann sich je nach Umgebung verändern. Dadurch kann es sich zu vielen verschiedenen Formen entwickeln.',
     image: evoliImg,
-    cries: [],
+    cries: [evoliCry],
     color: '#c8a060',
   },
 ]

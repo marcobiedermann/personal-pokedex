@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Navigate, Route, Routes } from 'react-router'
 import { PartyScreen } from './PartyScreen'
 import { DetailScreen } from './DetailScreen'
@@ -6,16 +6,23 @@ import { DetailScreen } from './DetailScreen'
 const OPENED_KEY = 'pokedex-opened'
 
 function App() {
-  const [opened, setOpened] = useState(() => sessionStorage.getItem(OPENED_KEY) === '1')
-  const [lidOpen, setLidOpen] = useState(opened)
+  const [lidOpen, setLidOpen] = useState(() => sessionStorage.getItem(OPENED_KEY) === '1')
+  // Skip the animation when restoring an already opened Pokédex
+  const [instant, setInstant] = useState(lidOpen)
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => setInstant(false))
+    return () => cancelAnimationFrame(id)
+  }, [])
 
   const open = () => {
-    if (lidOpen) return
+    sessionStorage.setItem(OPENED_KEY, '1')
     setLidOpen(true)
-    setTimeout(() => {
-      sessionStorage.setItem(OPENED_KEY, '1')
-      setOpened(true)
-    }, 1100)
+  }
+
+  const close = () => {
+    sessionStorage.removeItem(OPENED_KEY)
+    setLidOpen(false)
   }
 
   return (
@@ -37,27 +44,28 @@ function App() {
           </div>
         </div>
         <div className="controls">
-          <span className="btn-round" />
+          <button type="button" className="btn-round" onClick={close} aria-label="Pokédex schließen">
+            <span>Schließen</span>
+          </button>
           <div className="speaker">
             <i /><i /><i />
           </div>
           <span className="dpad" />
         </div>
       </div>
-      {!opened && (
-        <button
-          type="button"
-          className={`lid${lidOpen ? ' open' : ''}`}
-          onClick={open}
-          aria-label="Pokédex öffnen"
-        >
-          <span className="lid-face">
-            <span className="lid-lens" />
-            <span className="lid-title">POKÉDEX</span>
-            <span className="lid-hint">Tippen zum Öffnen</span>
-          </span>
-        </button>
-      )}
+      <button
+        type="button"
+        className={`lid${lidOpen ? ' open' : ''}${instant ? ' instant' : ''}`}
+        onClick={open}
+        aria-label="Pokédex öffnen"
+        tabIndex={lidOpen ? -1 : 0}
+      >
+        <span className="lid-face">
+          <span className="lid-lens" />
+          <span className="lid-title">POKÉDEX</span>
+          <span className="lid-hint">Tippen zum Öffnen</span>
+        </span>
+      </button>
     </div>
   )
 }

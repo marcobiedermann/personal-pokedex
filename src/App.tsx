@@ -52,7 +52,13 @@ function App() {
           <button type="button" className="speaker" onClick={close} aria-label="Pokédex schließen">
             <i /><i /><i />
           </button>
-          <span className="dpad" />
+          <a
+            className="dpad"
+            href="https://open.spotify.com/playlist/225VwKcRFlN0hBBMVW2Cul?si=359a1239fd6d4a48"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Pokémon-Musik auf Spotify"
+          />
         </div>
       </div>
       <button

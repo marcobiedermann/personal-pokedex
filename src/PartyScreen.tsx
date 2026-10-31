@@ -53,15 +53,6 @@ export function PartyScreen() {
         <span>Orden</span>
         <span>{BADGES.filter((b) => b.earned).length} / {BADGES.length} ›</span>
       </Link>
-      <a
-        href="https://open.spotify.com/playlist/225VwKcRFlN0hBBMVW2Cul?si=359a1239fd6d4a48"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="badges-link"
-      >
-        <span>Pokémon-Musik</span>
-        <span>Spotify ›</span>
-      </a>
     </div>
   )
 }

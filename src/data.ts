@@ -6,6 +6,7 @@ import pikachuCry4 from './assets/cries/pikachu-4.mp3'
 import thunderboltSound from './assets/cries/donnerblitz.mp3'
 import evoliCry from './assets/cries/evee.mp3'
 import mimikyuImg from './assets/pokemon/778.png'
+import umbreonImg from './assets/pokemon/197.png'
 import evoliImg from './assets/pokemon/133.png'
 
 export type StatKey = 'kp' | 'angriff' | 'verteidigung' | 'spAngriff' | 'spVerteidigung' | 'initiative'
@@ -102,28 +103,49 @@ export const POKEMON: Pokemon[] = [
   },
 ]
 
-const MIMIKYU: Partial<Pokemon> = {
-  number: 778,
-  name: 'Mimigma',
-  species: 'Verkleidungs-Pokémon',
-  types: ['Geist', 'Fee'],
-  base: { kp: 55, angriff: 90, verteidigung: 80, spAngriff: 50, spVerteidigung: 105, initiative: 96 },
-  moves: [
-    { name: 'Kratzer', type: 'Normal' },
-    { name: 'Erstauner', type: 'Geist' },
-    { name: 'Schattenstoß', type: 'Geist' },
-    { name: 'Dunkelklaue', type: 'Geist' },
-  ],
-  height: '0,2 m',
-  weight: '0,7 kg',
-  description:
-    'Es versteckt sich unter einem Pikachu-Lumpen, weil es Freunde finden will. Wer einen Blick darunter wirft, wird verflucht.',
-  image: mimikyuImg,
-  color: '#7e57c2',
+const HALLOWEEN_FORMS: Record<string, Partial<Pokemon>> = {
+  pikachu: {
+    number: 778,
+    name: 'Mimigma',
+    species: 'Verkleidungs-Pokémon',
+    types: ['Geist', 'Fee'],
+    base: { kp: 55, angriff: 90, verteidigung: 80, spAngriff: 50, spVerteidigung: 105, initiative: 96 },
+    moves: [
+      { name: 'Kratzer', type: 'Normal' },
+      { name: 'Erstauner', type: 'Geist' },
+      { name: 'Schattenstoß', type: 'Geist' },
+      { name: 'Dunkelklaue', type: 'Geist' },
+    ],
+    height: '0,2 m',
+    weight: '0,7 kg',
+    description:
+      'Es versteckt sich unter einem Pikachu-Lumpen, weil es Freunde finden will. Wer einen Blick darunter wirft, wird verflucht.',
+    image: mimikyuImg,
+    color: '#7e57c2',
+  },
+  evoli: {
+    number: 197,
+    name: 'Nachtara',
+    species: 'Mondschein-Pokémon',
+    types: ['Unlicht'],
+    base: { kp: 95, angriff: 65, verteidigung: 110, spAngriff: 60, spVerteidigung: 130, initiative: 65 },
+    moves: [
+      { name: 'Biss', type: 'Unlicht' },
+      { name: 'Finte', type: 'Unlicht' },
+      { name: 'Konfusstrahl', type: 'Geist' },
+      { name: 'Verfolgung', type: 'Unlicht' },
+    ],
+    height: '1,0 m',
+    weight: '27,0 kg',
+    description:
+      'In mondhellen Nächten beginnen die Ringe auf seinem Fell zu leuchten. Es lauert im Dunkeln und überrascht seine Gegner.',
+    image: umbreonImg,
+    color: '#4a4a7a',
+  },
 }
 
 export function getParty(halloween: boolean): Pokemon[] {
-  return POKEMON.map((p) => (halloween && p.id === 'pikachu' ? { ...p, ...MIMIKYU } : p))
+  return POKEMON.map((p) => (halloween ? { ...p, ...HALLOWEEN_FORMS[p.id] } : p))
 }
 
 export const PARTY_SIZE = 6

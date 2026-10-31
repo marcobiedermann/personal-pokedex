@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react'
-import { Navigate, Route, Routes } from 'react-router'
+import { Navigate, Route, Routes, useNavigate } from 'react-router'
 import { PartyScreen } from './PartyScreen'
 import { DetailScreen } from './DetailScreen'
 
 const OPENED_KEY = 'pokedex-opened'
 
 function App() {
+  const navigate = useNavigate()
   const [lidOpen, setLidOpen] = useState(() => sessionStorage.getItem(OPENED_KEY) === '1')
   // Skip the animation when restoring an already opened Pokédex
   const [instant, setInstant] = useState(lidOpen)
@@ -23,6 +24,7 @@ function App() {
   const close = () => {
     sessionStorage.removeItem(OPENED_KEY)
     setLidOpen(false)
+    navigate('/')
   }
 
   return (
@@ -44,12 +46,10 @@ function App() {
           </div>
         </div>
         <div className="controls">
-          <button type="button" className="btn-round" onClick={close} aria-label="Pokédex schließen">
-            <span>Schließen</span>
-          </button>
-          <div className="speaker">
+          <span className="btn-round" />
+          <button type="button" className="speaker" onClick={close} aria-label="Pokédex schließen">
             <i /><i /><i />
-          </div>
+          </button>
           <span className="dpad" />
         </div>
       </div>

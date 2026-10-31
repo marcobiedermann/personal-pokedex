@@ -244,3 +244,6 @@ body {
 .halloween .encounter button { border-color: #ff7a00; color: #14081f; }
 .halloween .encounter button.ghost-btn { color: #f3e5ff; background: transparent; }
 .halloween .camera { border-color: #ff7a00; }
+.release-btn { width: 100%; margin-top: 20px; padding: 12px; border: 3px solid #b71c1c; border-radius: 12px; background: transparent; color: #b71c1c; font: inherit; font-weight: 800; }
+.release-btn:active { background: rgba(183,28,28,.15); }
+.halloween .release-btn { color: #ff8a80; border-color: #ff8a80; }

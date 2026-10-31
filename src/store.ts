@@ -17,6 +17,12 @@ function createStore(key: string) {
       localStorage.setItem(key, JSON.stringify(value))
       listeners.forEach((l) => l())
     },
+    remove(id: string) {
+      if (!value.includes(id)) return
+      value = value.filter((v) => v !== id)
+      localStorage.setItem(key, JSON.stringify(value))
+      listeners.forEach((l) => l())
+    },
     subscribe(l: () => void) {
       listeners.add(l)
       return () => listeners.delete(l)

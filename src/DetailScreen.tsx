@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
-import { Link, Navigate, useParams } from 'react-router'
+import { Link, Navigate, useNavigate, useParams } from 'react-router'
 import { STAT_LABELS, STAT_ORDER, TRAINER, calcStats } from './data'
+import { caughtStore, useStore } from './store'
 import { useParty } from './useParty'
 
 const MAX_STAT = 200
@@ -25,6 +26,8 @@ export function DetailScreen() {
     audio.current.play()
   }
   const party = useParty()
+  const caught = useStore(caughtStore)
+  const navigate = useNavigate()
   const p = party.find((x) => x.id === id)
   if (!p) return <Navigate to="/" replace />
   const stats = calcStats(p)
@@ -95,6 +98,19 @@ export function DetailScreen() {
           </li>
         ))}
       </ul>
+      {caught.includes(p.id) && (
+        <button
+          type="button"
+          className="release-btn"
+          onClick={() => {
+            if (!window.confirm(`${p.name} wirklich freilassen?`)) return
+            caughtStore.remove(p.id)
+            navigate('/', { replace: true })
+          }}
+        >
+          {p.name} freilassen
+        </button>
+      )}
     </div>
   )
 }

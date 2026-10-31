@@ -28,7 +28,7 @@ export function Encounter({ active }: { active: boolean }) {
     return () => window.clearTimeout(id)
   }, [enabled, caught, round])
 
-  if (!wild) return null
+  if (!wild || !active) return null
 
   const dismiss = () => {
     setWild(null)

@@ -70,7 +70,7 @@ function App() {
             </Routes>
           </div>
           {halloween && <Haunt />}
-          <Encounter active={lidOpen} />
+          <Encounter active={lidOpen && halloween} />
         </div>
         <div className="controls">
           <span className="btn-round" />

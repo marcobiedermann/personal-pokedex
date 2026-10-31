@@ -129,3 +129,12 @@ body {
 .lid-hint { font-size: 15px; opacity: .9; animation: blink 1.6s ease-in-out infinite; }
 @keyframes pulse { 50% { box-shadow: 0 0 0 4px #7f0f0f, 0 0 28px 8px #7fd1ff; } }
 @keyframes blink { 50% { opacity: .3; } }
+
+.badges-link { display: flex; justify-content: space-between; margin-top: 12px; padding: 14px; border-radius: 12px; border: 3px solid #2d4a2d; background: #f4fbe9; color: inherit; text-decoration: none; font-weight: 800; font-size: 17px; }
+.badges-link:active { background: #dcefc8; }
+.badges { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.badge { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 12px 6px; background: #f4fbe9; border: 3px solid #2d4a2d; border-radius: 12px; text-align: center; }
+.badge.locked { opacity: .45; border-style: dashed; background: rgba(255,255,255,.25); }
+.badge-icon { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; border: 3px solid #2d4a2d; background: #999; font-size: 30px; color: #fff; }
+.badge-name { font-weight: 800; font-size: 15px; }
+.badge-leader { font-size: 12px; opacity: .7; min-height: 15px; }

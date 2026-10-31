@@ -98,3 +98,22 @@ export function calcStats(p: Pokemon): Record<StatKey, number> {
     STAT_ORDER.map((k) => [k, calcStat(k, p.base[k], p.level)]),
   ) as Record<StatKey, number>
 }
+
+export interface Badge {
+  name: string
+  leader: string
+  symbol: string
+  color: string
+  earned: boolean
+}
+
+export const BADGES: Badge[] = [
+  { name: 'Felsorden', leader: 'Rocko', symbol: '⬢', color: '#a1887f', earned: true },
+  { name: 'Quellorden', leader: 'Misty', symbol: '💧', color: '#4fc3f7', earned: true },
+  { name: 'Donnerorden', leader: 'Major Bob', symbol: '⚡', color: '#ffd54f', earned: true },
+  { name: 'Regenbogenorden', leader: 'Erika', symbol: '✿', color: '#81c784', earned: false },
+  { name: 'Seelenorden', leader: 'Koga', symbol: '♥', color: '#f06292', earned: false },
+  { name: 'Sumpforden', leader: 'Sabrina', symbol: '◉', color: '#ba68c8', earned: false },
+  { name: 'Vulkanorden', leader: 'Pyro', symbol: '🔥', color: '#ff8a65', earned: false },
+  { name: 'Erdorden', leader: 'Giovanni', symbol: '◆', color: '#8d6e63', earned: false },
+]

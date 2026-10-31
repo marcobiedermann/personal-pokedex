@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { PARTY_SIZE, POKEMON, TRAINER, calcStats } from './data'
+import { BADGES, PARTY_SIZE, POKEMON, TRAINER, calcStats } from './data'
 
 export function PartyScreen() {
   const slots = Array.from({ length: PARTY_SIZE }, (_, i) => POKEMON[i])
@@ -40,6 +40,10 @@ export function PartyScreen() {
           ),
         )}
       </ul>
+      <Link to="/orden" className="badges-link">
+        <span>Orden</span>
+        <span>{BADGES.filter((b) => b.earned).length} / {BADGES.length} ›</span>
+      </Link>
     </div>
   )
 }

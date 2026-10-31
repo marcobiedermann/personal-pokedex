@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Navigate, Route, Routes, useNavigate } from 'react-router'
 import { PartyScreen } from './PartyScreen'
 import { DetailScreen } from './DetailScreen'
+import { BadgesScreen } from './BadgesScreen'
 
 const OPENED_KEY = 'pokedex-opened'
 
@@ -41,6 +42,7 @@ function App() {
             <Routes>
               <Route path="/" element={<PartyScreen />} />
               <Route path="/pokemon/:id" element={<DetailScreen />} />
+              <Route path="/orden" element={<BadgesScreen />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </div>

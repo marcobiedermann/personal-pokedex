@@ -1,9 +1,11 @@
 import { Link } from 'react-router'
+import { useHalloween } from './halloween'
 import ashImg from './assets/ash.png'
-import { BADGES, PARTY_SIZE, POKEMON, TRAINER, TRAINER_INFO, calcStats } from './data'
+import { BADGES, PARTY_SIZE, TRAINER, getParty, TRAINER_INFO, calcStats } from './data'
 
 export function PartyScreen() {
-  const slots = Array.from({ length: PARTY_SIZE }, (_, i) => POKEMON[i])
+  const party = getParty(useHalloween())
+  const slots = Array.from({ length: PARTY_SIZE }, (_, i) => party[i])
 
   return (
     <div className="page">

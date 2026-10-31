@@ -3,11 +3,20 @@ import { Navigate, Route, Routes, useNavigate } from 'react-router'
 import { PartyScreen } from './PartyScreen'
 import { DetailScreen } from './DetailScreen'
 import { BadgesScreen } from './BadgesScreen'
+import { HalloweenContext } from './halloween'
 
 const OPENED_KEY = 'pokedex-opened'
+const HALLOWEEN_KEY = 'pokedex-halloween'
 
 function App() {
   const navigate = useNavigate()
+  const [halloween, setHalloween] = useState(() => localStorage.getItem(HALLOWEEN_KEY) === '1')
+
+  const toggleHalloween = () => {
+    const next = !halloween
+    localStorage.setItem(HALLOWEEN_KEY, next ? '1' : '0')
+    setHalloween(next)
+  }
   const [lidOpen, setLidOpen] = useState(() => sessionStorage.getItem(OPENED_KEY) === '1')
   // Skip the animation when restoring an already opened Pokédex
   const [instant, setInstant] = useState(lidOpen)
@@ -29,10 +38,11 @@ function App() {
   }
 
   return (
-    <div className="device">
+    <HalloweenContext value={halloween}>
+    <div className={`device${halloween ? ' halloween' : ''}`}>
       <div className="body">
         <div className="top-bar">
-          <div className="lens" />
+          <button type="button" className="lens" onClick={toggleHalloween} aria-label="Halloween" />
           <span className="led red" />
           <span className="led yellow" />
           <span className="led green" />
@@ -75,6 +85,7 @@ function App() {
         </span>
       </button>
     </div>
+    </HalloweenContext>
   )
 }
 

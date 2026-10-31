@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { Link, Navigate, useParams } from 'react-router'
-import { POKEMON, STAT_LABELS, STAT_ORDER, TRAINER, calcStats } from './data'
+import { STAT_LABELS, STAT_ORDER, TRAINER, calcStats, getParty } from './data'
+import { useHalloween } from './halloween'
 
 const MAX_STAT = 200
 
@@ -23,7 +24,8 @@ export function DetailScreen() {
     audio.current = new Audio(src)
     audio.current.play()
   }
-  const p = POKEMON.find((x) => x.id === id)
+  const halloween = useHalloween()
+  const p = getParty(halloween).find((x) => x.id === id)
   if (!p) return <Navigate to="/" replace />
   const stats = calcStats(p)
 

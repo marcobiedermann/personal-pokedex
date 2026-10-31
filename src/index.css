@@ -32,6 +32,7 @@ body {
 
 .top-bar { display: flex; align-items: center; gap: 8px; height: 44px; flex: none; }
 .lens {
+  padding: 0; cursor: pointer;
   width: 36px; height: 36px; border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, #bde9ff, #2196f3 60%, #0d47a1);
   border: 3px solid #fff; box-shadow: 0 0 0 2px #7f0f0f;
@@ -146,3 +147,25 @@ body {
 .facts.trainer dd { margin: 0; }
 .cry-btn { width: 100%; margin: 12px 0 0; padding: 14px; border: 3px solid #2d4a2d; border-radius: 12px; background: #f8d030; color: #1b2a1b; font: inherit; font-weight: 800; font-size: 17px; }
 .cry-btn:active { background: #e0b820; }
+
+/* Halloween theme */
+.halloween .body { background: linear-gradient(160deg, #3b1d5a, #14081f); box-shadow: inset 0 0 0 3px #ff7a00; }
+.halloween .lens { background: radial-gradient(circle at 35% 35%, #ffd180, #ff7a00 60%, #8a3b00); box-shadow: 0 0 14px 2px #ff7a00, 0 0 0 2px #ff7a00; }
+.halloween .screen-frame { background: #2a1a3a; }
+.halloween .screen { background: radial-gradient(circle at 50% 0%, #2d1b45, #0d0615); color: #f3e5ff; box-shadow: inset 0 0 18px rgba(255,122,0,.35); }
+.halloween .speaker i { background: #ff7a00; }
+.halloween .page-header h1::after { content: ' 🎃'; }
+.halloween .back { color: #ff9e40; }
+.halloween .slot.filled, .halloween .moves .move, .halloween .badge, .halloween .desc, .halloween .badges-link { background: #241338; color: #f3e5ff; border-color: #ff7a00; }
+.halloween .slot.filled:active, .halloween .move.playable:active { background: #3a2158; }
+.halloween .slot.empty, .halloween .badge.locked { background: rgba(255,255,255,.06); border-color: #6b4a8a; }
+.halloween .avatar, .halloween .badge-icon { border-color: #ff7a00; }
+.halloween .facts div { background: rgba(255,255,255,.08); }
+.halloween .chip { background: #6a1b9a; }
+.halloween .chip.level { background: #ff7a00; }
+.halloween .hp-label { color: #ff9e40; }
+.halloween .hp-bar span { background: #b388ff; }
+.halloween .stat-bar { background: rgba(255,255,255,.12); }
+.halloween .stat-bar span { background: linear-gradient(90deg, #7e57c2, #ff7a00); }
+.halloween .empty-ball { border-color: #6b4a8a; background: linear-gradient(#cfc 45%, #6b4a8a 45% 55%, #cfc 55%); }
+.halloween .cry-btn { background: #ff7a00; border-color: #3b1d5a; color: #14081f; }

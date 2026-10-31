@@ -38,6 +38,12 @@ export interface Pokemon {
 
 export const TRAINER = 'Ash Ketchum'
 
+export const TRAINER_INFO = [
+  { label: 'Name', value: 'Ash (Marco)' },
+  { label: 'Alter', value: '32' },
+  { label: 'Wohnort', value: 'Berlin' },
+]
+
 export const POKEMON: Pokemon[] = [
   {
     id: 'pikachu',

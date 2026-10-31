@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { BADGES, PARTY_SIZE, POKEMON, TRAINER, calcStats } from './data'
+import { BADGES, PARTY_SIZE, POKEMON, TRAINER, TRAINER_INFO, calcStats } from './data'
 
 export function PartyScreen() {
   const slots = Array.from({ length: PARTY_SIZE }, (_, i) => POKEMON[i])
@@ -10,6 +10,11 @@ export function PartyScreen() {
         <h1>Team</h1>
         <p>Trainer {TRAINER}</p>
       </header>
+      <dl className="facts trainer">
+        {TRAINER_INFO.map((i) => (
+          <div key={i.label}><dt>{i.label}</dt><dd>{i.value}</dd></div>
+        ))}
+      </dl>
       <ul className="party">
         {slots.map((p, i) =>
           p ? (

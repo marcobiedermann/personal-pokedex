@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { AshAvatar } from './AshAvatar'
+import ashImg from './assets/ash.png'
 import { BADGES, PARTY_SIZE, POKEMON, TRAINER, TRAINER_INFO, calcStats } from './data'
 
 export function PartyScreen() {
@@ -12,7 +12,7 @@ export function PartyScreen() {
         <p>Trainer {TRAINER}</p>
       </header>
       <div className="trainer-card">
-        <AshAvatar />
+        <img src={ashImg} alt="Avatar von Ash" className="avatar" />
         <dl className="facts trainer">
           {TRAINER_INFO.map((i) => (
             <div key={i.label}><dt>{i.label}</dt><dd>{i.value}</dd></div>

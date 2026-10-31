@@ -139,7 +139,7 @@ body {
 .badge-name { font-weight: 800; font-size: 15px; }
 .badge-leader { font-size: 12px; opacity: .7; min-height: 15px; }
 .trainer-card { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-.avatar { width: 96px; height: 96px; flex: none; }
+.avatar { width: 96px; height: 96px; flex: none; border-radius: 50%; border: 3px solid #2d4a2d; object-fit: cover; }
 .facts.trainer { flex: 1; grid-template-columns: 1fr; gap: 6px; margin: 0; }
 .facts.trainer div { display: flex; justify-content: space-between; align-items: center; }
 .facts.trainer dd { margin: 0; }

@@ -39,7 +39,7 @@ export interface Pokemon {
 export const TRAINER = 'Ash Ketchum'
 
 export const TRAINER_INFO = [
-  { label: 'Name', value: 'Ash (Marco)' },
+  { label: 'Name', value: 'Marco' },
   { label: 'Alter', value: '32' },
   { label: 'Wohnort', value: 'Berlin' },
 ]

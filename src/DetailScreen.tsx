@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { Link, Navigate, useParams } from 'react-router'
-import { STAT_LABELS, STAT_ORDER, TRAINER, calcStats, getParty } from './data'
-import { useHalloween } from './halloween'
+import { STAT_LABELS, STAT_ORDER, TRAINER, calcStats } from './data'
+import { useParty } from './useParty'
 
 const MAX_STAT = 200
 
@@ -24,8 +24,8 @@ export function DetailScreen() {
     audio.current = new Audio(src)
     audio.current.play()
   }
-  const halloween = useHalloween()
-  const p = getParty(halloween).find((x) => x.id === id)
+  const party = useParty()
+  const p = party.find((x) => x.id === id)
   if (!p) return <Navigate to="/" replace />
   const stats = calcStats(p)
 
@@ -39,7 +39,7 @@ export function DetailScreen() {
         <h1>{p.nickname}</h1>
         <span className="nr">Nr. {String(p.number).padStart(3, '0')}</span>
       </div>
-      <p className="species">{p.name} · {p.species}</p>
+      <p className="species">{p.nickname !== p.name ? `${p.name} · ${p.species}` : p.species}</p>
       <div className="chips">
         {p.types.map((t) => (
           <span key={t} className="chip">{t}</span>

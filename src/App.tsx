@@ -4,6 +4,13 @@ import { PartyScreen } from './PartyScreen'
 import { DetailScreen } from './DetailScreen'
 import { BadgesScreen } from './BadgesScreen'
 import { HalloweenContext } from './halloween'
+import { CatchScreen } from './CatchScreen'
+import { ScanScreen } from './ScanScreen'
+import { PhotoScreen } from './PhotoScreen'
+import { ShareScreen } from './ShareScreen'
+import { Encounter } from './Encounter'
+import { Haunt } from './Haunt'
+import { playGhostWail, unlockAudio } from './spooky'
 
 const OPENED_KEY = 'pokedex-opened'
 const HALLOWEEN_KEY = 'pokedex-halloween'
@@ -15,11 +22,17 @@ function App() {
   const toggleHalloween = () => {
     const next = !halloween
     localStorage.setItem(HALLOWEEN_KEY, next ? '1' : '0')
+    if (next) {
+      playGhostWail()
+      navigator.vibrate?.([200, 100, 200])
+    }
     setHalloween(next)
   }
   const [lidOpen, setLidOpen] = useState(() => sessionStorage.getItem(OPENED_KEY) === '1')
   // Skip the animation when restoring an already opened Pokédex
   const [instant, setInstant] = useState(lidOpen)
+
+  useEffect(unlockAudio, [])
 
   useEffect(() => {
     const id = requestAnimationFrame(() => setInstant(false))
@@ -53,9 +66,15 @@ function App() {
               <Route path="/" element={<PartyScreen />} />
               <Route path="/pokemon/:id" element={<DetailScreen />} />
               <Route path="/orden" element={<BadgesScreen />} />
+              <Route path="/fangen" element={<CatchScreen />} />
+              <Route path="/scan" element={<ScanScreen />} />
+              <Route path="/foto" element={<PhotoScreen />} />
+              <Route path="/teilen" element={<ShareScreen />} />
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </div>
+          {halloween && <Haunt />}
+          <Encounter active={lidOpen} />
         </div>
         <div className="controls">
           <span className="btn-round" />

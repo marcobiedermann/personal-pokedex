@@ -27,6 +27,10 @@ export function DetailScreen() {
         <span className="chip level">Lv. {p.level}</span>
       </div>
 
+      <button type="button" className="cry-btn" onClick={() => new Audio(p.cry).play()}>
+        🔊 {p.name} rufen
+      </button>
+
       <p className="desc">{p.description}</p>
 
       <dl className="facts">

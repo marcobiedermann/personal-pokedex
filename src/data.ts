@@ -1,11 +1,9 @@
 import pikachuImg from './assets/pokemon/25.png'
-import pikachuCry from './assets/cries/25.mp3'
 import pikachuCry1 from './assets/cries/pikachu-1.mp3'
 import pikachuCry2 from './assets/cries/pikachu-2.mp3'
 import pikachuCry3 from './assets/cries/pikachu-3.mp3'
 import pikachuCry4 from './assets/cries/pikachu-4.mp3'
 import thunderboltSound from './assets/cries/donnerblitz.mp3'
-import evoliCry from './assets/cries/133.mp3'
 import evoliImg from './assets/pokemon/133.png'
 
 export type StatKey = 'kp' | 'angriff' | 'verteidigung' | 'spAngriff' | 'spVerteidigung' | 'initiative'
@@ -74,7 +72,7 @@ export const POKEMON: Pokemon[] = [
     description:
       'In seinen Wangen speichert es Elektrizität. Wenn es wütend ist, entlädt es die Energie in einem kräftigen Stromstoß.',
     image: pikachuImg,
-    cries: [pikachuCry, pikachuCry1, pikachuCry2, pikachuCry3, pikachuCry4],
+    cries: [pikachuCry1, pikachuCry2, pikachuCry3, pikachuCry4],
     color: '#f8d030',
   },
   {
@@ -97,7 +95,7 @@ export const POKEMON: Pokemon[] = [
     description:
       'Sein unstabiler Körperbau kann sich je nach Umgebung verändern. Dadurch kann es sich zu vielen verschiedenen Formen entwickeln.',
     image: evoliImg,
-    cries: [evoliCry],
+    cries: [],
     color: '#c8a060',
   },
 ]

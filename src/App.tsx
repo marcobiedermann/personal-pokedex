@@ -70,8 +70,8 @@ function App() {
               <Route path="/" element={<PartyScreen />} />
               <Route path="/pokemon/:id" element={<DetailScreen />} />
               <Route path="/orden" element={<BadgesScreen />} />
-              <Route path="/fangen" element={<CatchScreen />} />
-              <Route path="/scan" element={<ScanScreen />} />
+              {halloween && <Route path="/fangen" element={<CatchScreen />} />}
+              {halloween && <Route path="/scan" element={<ScanScreen />} />}
               <Route path="*" element={<Navigate to="/" replace />} />
             </Routes>
           </div>

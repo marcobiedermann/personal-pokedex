@@ -1,4 +1,5 @@
 import { Link } from 'react-router'
+import { useHalloween } from './halloween'
 import { useBadges, useParty } from './useParty'
 import ashImg from './assets/ash.png'
 import { PARTY_SIZE, TRAINER, TRAINER_INFO, calcStats } from './data'
@@ -6,6 +7,7 @@ import { PARTY_SIZE, TRAINER, TRAINER_INFO, calcStats } from './data'
 export function PartyScreen() {
   const party = useParty()
   const badges = useBadges()
+  const halloween = useHalloween()
   const slots = Array.from({ length: PARTY_SIZE }, (_, i) => party[i])
 
   return (
@@ -56,10 +58,12 @@ export function PartyScreen() {
         <span>Orden</span>
         <span>{badges.filter((b) => b.earned).length} / {badges.length} ›</span>
       </Link>
-      <div className="tools">
-        <Link to="/fangen" className="tool"><span>🎯</span>Fangen</Link>
-        <Link to="/scan" className="tool"><span>🔍</span>Scan</Link>
-      </div>
+      {halloween && (
+        <div className="tools">
+          <Link to="/fangen" className="tool"><span>🎯</span>Fangen</Link>
+          <Link to="/scan" className="tool"><span>🔍</span>Scan</Link>
+        </div>
+      )}
     </div>
   )
 }

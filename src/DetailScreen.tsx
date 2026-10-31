@@ -4,20 +4,18 @@ import { POKEMON, STAT_LABELS, STAT_ORDER, TRAINER, calcStats } from './data'
 
 const MAX_STAT = 200
 
+function pickCry(cries: string[], last: number): number {
+  const i = Math.floor(Math.random() * cries.length)
+  // Avoid repeating the same cry twice in a row
+  return cries.length > 1 && i === last ? (i + 1) % cries.length : i
+}
+
 export function DetailScreen() {
   const { id } = useParams()
   const lastCry = useRef(-1)
   const p = POKEMON.find((x) => x.id === id)
   if (!p) return <Navigate to="/" replace />
   const stats = calcStats(p)
-
-  const playCry = () => {
-    // Avoid repeating the same cry twice in a row
-    let i = Math.floor(Math.random() * p.cries.length)
-    if (p.cries.length > 1 && i === lastCry.current) i = (i + 1) % p.cries.length
-    lastCry.current = i
-    new Audio(p.cries[i]).play()
-  }
 
   return (
     <div className="page detail">
@@ -37,7 +35,10 @@ export function DetailScreen() {
         <span className="chip level">Lv. {p.level}</span>
       </div>
 
-      <button type="button" className="cry-btn" onClick={playCry}>
+      <button type="button" className="cry-btn" onClick={() => {
+          lastCry.current = pickCry(p.cries, lastCry.current)
+          new Audio(p.cries[lastCry.current]).play()
+        }}>
         🔊 {p.name} rufen
       </button>
 

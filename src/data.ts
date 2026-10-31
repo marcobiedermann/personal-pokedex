@@ -23,6 +23,7 @@ export interface Pokemon {
   id: string
   number: number
   name: string
+  nickname: string
   species: string
   level: number
   types: string[]
@@ -42,6 +43,7 @@ export const POKEMON: Pokemon[] = [
     id: 'pikachu',
     number: 25,
     name: 'Pikachu',
+    nickname: 'Rosa',
     species: 'Maus-Pokémon',
     level: 6,
     types: ['Elektro'],
@@ -62,6 +64,7 @@ export const POKEMON: Pokemon[] = [
     id: 'evoli',
     number: 133,
     name: 'Evoli',
+    nickname: 'Katja',
     species: 'Evolutions-Pokémon',
     level: 31,
     types: ['Normal'],

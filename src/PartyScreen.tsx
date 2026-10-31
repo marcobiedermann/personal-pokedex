@@ -17,7 +17,8 @@ export function PartyScreen() {
               <Link to={`/pokemon/${p.id}`} className="slot filled">
                 <img src={p.image} alt="" className="slot-img" />
                 <span className="slot-info">
-                  <span className="slot-name">{p.name}</span>
+                  <span className="slot-name">{p.nickname}</span>
+                  <span className="slot-species">{p.name}</span>
                   <span className="slot-level">Lv. {p.level}</span>
                   <span className="hp-row">
                     <span className="hp-label">KP</span>

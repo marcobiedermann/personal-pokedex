@@ -13,13 +13,13 @@ export function DetailScreen() {
     <div className="page detail">
       <Link to="/" className="back">‹ Zurück</Link>
       <header className="detail-head" style={{ background: `radial-gradient(circle, ${p.color}aa, transparent 70%)` }}>
-        <img src={p.image} alt={p.name} />
+        <img src={p.image} alt={p.nickname} />
       </header>
       <div className="title-row">
-        <h1>{p.name}</h1>
+        <h1>{p.nickname}</h1>
         <span className="nr">Nr. {String(p.number).padStart(3, '0')}</span>
       </div>
-      <p className="species">{p.species}</p>
+      <p className="species">{p.name} · {p.species}</p>
       <div className="chips">
         {p.types.map((t) => (
           <span key={t} className="chip">{t}</span>

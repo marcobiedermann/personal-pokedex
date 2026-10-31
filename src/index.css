@@ -69,6 +69,7 @@ body {
 .slot-img { width: 68px; height: 68px; object-fit: contain; flex: none; }
 .slot-info { flex: 1; display: grid; gap: 2px; }
 .slot-name { font-weight: 800; font-size: 18px; }
+.slot-species { font-size: 12px; opacity: .7; }
 .slot-level { font-size: 13px; font-weight: 600; }
 .hp-row { display: flex; align-items: center; gap: 6px; }
 .hp-label { font-size: 11px; font-weight: 800; color: #e08a00; }

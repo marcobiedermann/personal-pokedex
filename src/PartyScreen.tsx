@@ -1,4 +1,5 @@
 import { Link } from 'react-router'
+import { AshAvatar } from './AshAvatar'
 import { BADGES, PARTY_SIZE, POKEMON, TRAINER, TRAINER_INFO, calcStats } from './data'
 
 export function PartyScreen() {
@@ -10,11 +11,14 @@ export function PartyScreen() {
         <h1>Team</h1>
         <p>Trainer {TRAINER}</p>
       </header>
-      <dl className="facts trainer">
-        {TRAINER_INFO.map((i) => (
-          <div key={i.label}><dt>{i.label}</dt><dd>{i.value}</dd></div>
-        ))}
-      </dl>
+      <div className="trainer-card">
+        <AshAvatar />
+        <dl className="facts trainer">
+          {TRAINER_INFO.map((i) => (
+            <div key={i.label}><dt>{i.label}</dt><dd>{i.value}</dd></div>
+          ))}
+        </dl>
+      </div>
       <ul className="party">
         {slots.map((p, i) =>
           p ? (

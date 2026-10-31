@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { Link, Navigate, useParams } from 'react-router'
 import { POKEMON, STAT_LABELS, STAT_ORDER, TRAINER, calcStats } from './data'
 
@@ -13,6 +13,16 @@ function pickCry(cries: string[], last: number): number {
 export function DetailScreen() {
   const { id } = useParams()
   const lastCry = useRef(-1)
+  const audio = useRef<HTMLAudioElement | null>(null)
+
+  // Stop any playing sound when leaving the page
+  useEffect(() => () => audio.current?.pause(), [])
+
+  const play = (src: string) => {
+    audio.current?.pause()
+    audio.current = new Audio(src)
+    audio.current.play()
+  }
   const p = POKEMON.find((x) => x.id === id)
   if (!p) return <Navigate to="/" replace />
   const stats = calcStats(p)
@@ -38,7 +48,7 @@ export function DetailScreen() {
       {p.cries.length > 0 && (
         <button type="button" className="cry-btn" onClick={() => {
             lastCry.current = pickCry(p.cries, lastCry.current)
-            new Audio(p.cries[lastCry.current]).play()
+            play(p.cries[lastCry.current])
           }}>
           🔊 {p.name} rufen
         </button>
@@ -70,7 +80,7 @@ export function DetailScreen() {
         {p.moves.map((m) => (
           <li key={m.name}>
             {m.sound ? (
-              <button type="button" className="move playable" onClick={() => new Audio(m.sound).play()}>
+              <button type="button" className="move playable" onClick={() => play(m.sound!)}>
                 <span>{m.name} 🔊</span>
                 <span className="chip small">{m.type}</span>
               </button>
